@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos da Empresa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <!-- Barra fixa com botão de voltar e formulário de pesquisa -->
+        <div class="top-bar">
+            <form action="/" method="GET" class="form-voltar">
+                <button type="submit">Voltar</button>
+            </form>
+            <form action="{{ url_for('pesquisar_produtos') }}" method="GET" class="form-pesquisa">
+                <input type="text" name="nome_produto" placeholder="Nome do produto" required>
+                <button type="submit">Pesquisar</button>
+            </form>
+            <form action="{{ url_for('exportar_csv') }}" method="GET" class="form-exportar">
+                <button type="submit">Exportar CSV completo</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Tabela de produtos -->
+    <table id="product-table">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Saldo</th>
+                <th>Código da empresa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+                <tr>
+                    <td>{{ produto.cod_item }}</td>
+                    <td>{{ produto.des_item }}</td>
+                    <td>R$ {{ "%.2f"|format(produto.valor_preco) }}</td>
+                    <td>
+                        {% if produto.saldo == produto.saldo|round(0, 'common') %}
+                          {{ "%d"|format(produto.saldo) }}  
+                        {% else %}
+                          {{ "%f"|format(produto.saldo) }}  
+                        {% endif %}
+                      </td>
+                    <td>{{ produto.cod_empresa }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

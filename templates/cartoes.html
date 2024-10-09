@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartões</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Lista de Cartões</h1>
+    <div class="container-buttons">
+        <!-- Botão para voltar -->
+        <form action="/" method="GET" class="form-voltar2">
+            <button type="submit">Voltar</button>
+        </form>
+        
+        <!-- Botão para exportar CSV -->
+        <form action="/exportar_cartoes_csv" method="GET">
+            <button id="botao_expo" type="submit">Exportar para CSV</button>
+        </form>
+    </div>
+      
+    <table id="cartao-table">
+        <thead>
+            <tr>
+                <th>Código da Empresa</th>
+                <th>Nome Fantasia</th>
+                <th>Código do Sacado</th>
+                <th>Nome do Sacado</th>
+                <th>Sequência do Título</th>
+                <th>Tipo de Cobrança</th>
+                <th>Fatura</th>
+                <th>Status</th>
+                <th>Data de Vencimento</th>
+                <th>Valor Original</th>
+                <th>Valor Desconto</th>
+                <th>Valor Liquidado</th>
+                <th>Dias em Aberto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cartao in cartoes %}
+            <tr>
+                <td>{{ cartao[0] }}</td>
+                <td>{{ cartao[1] }}</td>
+                <td>{{ cartao[2] }}</td>
+                <td>{{ cartao[3] }}</td>
+                <td>{{ cartao[4] }}</td>
+                <td>{{ cartao[5] }}</td>
+                <td>{{ cartao[6] }}</td>
+                <td>{{ cartao[7] }}</td>
+                <td>{{ cartao[8] }}</td>
+                <td>R$ {{ cartao[9]|round(2) }}</td>
+                <td>R$ {{ cartao[10]|round(2) }}</td>
+                <td>R$ {{ cartao[11]|round(2) }}</td>
+                <td>{{ cartao[12] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

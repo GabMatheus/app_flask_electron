@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos Disponíveis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>MEU NOME DE EMPRESA</h1>
+    </header>
+
+    <section>
+        <!-- Seção de consulta de produtos da empresa -->
+        <div id="consulta-section">
+            <h2>Consultar Produtos da Empresa</h2>
+            <form method="POST">
+                <label for="cod_empresa">Empresa:</label>
+                <select name="cod_empresa" id="cod_empresa" required>
+                    {% for empresa in empresas %}
+                        <option value="{{ empresa[0] }}">{{ empresa[1] }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Consultar</button>
+            </form>
+        </div>
+
+    </section>
+
+    <section>
+        <!-- Seção de consulta de produtos da empresa -->
+        <div id="consulta-section2">
+            <h2>Consultar cartões em aberto</h2>
+            <form method="POST" action="/cartoes"> <!-- Atualize a action para a rota correta -->
+                <button type="submit">Consultar</button>
+            </form>
+        </div>
+    </section>
+    
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
