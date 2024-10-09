@@ -7,15 +7,15 @@
 
 ## 📋 Sumário
 
-- [Descrição do Projeto](#descrição-do-projeto)
-- [Fluxo do Processo](#fluxo-do-processo)
-- [Por que Isso Funciona?](#por-que-isso-funciona)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Instalação](#instalação)
-- [Uso](#uso)
-- [Empacotamento e Distribuição](#empacotamento-e-distribuição)
-- [Observações Importantes](#observações-importantes)
+- Descrição do Projeto
+- Fluxo do Processo
+- Por que Isso Funciona?
+- Tecnologias Utilizadas
+- Estrutura do Projeto
+- Instalação
+- Uso
+- Empacotamento e Distribuição
+- Observações Importantes
 
 ---
 
