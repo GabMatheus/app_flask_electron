@@ -77,11 +77,13 @@ O Flask atua como uma API REST, enquanto o Electron funciona como cliente, consu
 │   └── package.json          
 ├── requeriments.txt          
 └── /dist/  # Arquivos empacotados (gerado após build, deve criar também outras pastas e arquivos como por exemplo node_modules)
-Principais Arquivos
+
+## Principais Arquivos
 app.py: Lida com as rotas do Flask e a lógica do backend.
 main.js: Código principal do Electron que inicia a aplicação.
 package.json: Contém as configurações do Electron e scripts de build/start.
-⚙️ Instalação
+
+## ⚙️ Instalação
 Requisitos
 Node.js (inclui o NPM)
 Python
@@ -98,7 +100,8 @@ Navegue até a pasta do Electron e instale as dependências do NPM:
 
 cd electron
 npm install
-🚀 Uso
+
+## 🚀 Uso
 Executando a Aplicação para Desenvolvimento
 Inicie o servidor Flask:
 
@@ -109,13 +112,13 @@ cd electron
 npm start
 A interface do aplicativo será aberta automaticamente e você poderá começar a consultar os produtos.
 
-📦 Empacotamento e Distribuição
+## 📦 Empacotamento e Distribuição
 Para gerar um instalador da aplicação, execute o seguinte comando na pasta electron:
 
 npm run build
 O instalador será gerado na pasta dist e poderá ser distribuído para os usuários finais.
 
-⚠️ Observações Importantes
+## ⚠️ Observações Importantes
 1.Consultas SQL: As consultas e a conexão com o banco foram removidas. Ajustes no código são necessários.
 
 2.Rodando Localmente: Apenas rodar app.py permite que a aplicação funcione via interface web, mas o instalador é necessário para distribuição.
