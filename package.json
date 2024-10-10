@@ -1,22 +1,23 @@
 {
-  "name": "nome-pasta-principal",
+  "name": "Nome programa",
   "version": "1.0.0",
-  "description": "Aplicativo de consulta de produtos e cartões",
-  "author": "Seu Nome <email>",
+  "description": "Faça a descrição",
+  "author": "Nome <email>",
   "main": "electron/main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder"
   },
   "build": {
-    "appId": "com.consultaprodutos.app",
-    "productName": "nomeProduto",
+    "appId": "com.nomedoaplicativo.app",
+    "productName": "NomeProduto",
     "files": [
       "static/**/*",
       "templates/**/*",
       "app.py",
-      "requirements.txt",
-      "electron/**/*"
+      "requeriments.txt",
+      "electron/**/*",
+      "electron/preload.js"
     ],
     "directories": {
       "output": "dist"
