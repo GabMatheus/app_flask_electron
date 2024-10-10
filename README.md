@@ -128,7 +128,7 @@ A interface do aplicativo será aberta automaticamente e você poderá começar 
 ## 📦 Empacotamento e Distribuição
 Para gerar um instalador da aplicação, execute o seguinte comando na pasta electron:
 
-'. npm run build
+1. npm run build
 
 O instalador será gerado na pasta dist e poderá ser distribuído para os usuários finais.
 
