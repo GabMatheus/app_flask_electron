@@ -6,7 +6,10 @@ let mainWindow;
 
 // Função para iniciar o servidor Flask
 function startFlaskServer() {
-  const flaskProcess = exec('python ../app.py', (error, stdout, stderr) => {
+  // Caminho correto para o app.py
+  const flaskPath = path.join(__dirname, '../app.py');
+  
+  const flaskProcess = exec(`python ${flaskPath}`, (error, stdout, stderr) => {
     if (error) {
       console.error(`Erro ao iniciar o servidor Flask: ${error.message}`);
       return;
@@ -17,6 +20,11 @@ function startFlaskServer() {
     }
     console.log(`Stdout: ${stdout}`);
   });
+
+  flaskProcess.on('exit', (code) => {
+    console.log(`Servidor Flask encerrado com código: ${code}`);
+  });
+
   return flaskProcess;
 }
 
@@ -26,7 +34,9 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, 'preload.js'), 
+      contextIsolation: true, 
+      enableRemoteModule: false, 
     }
   });
 
