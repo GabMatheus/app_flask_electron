@@ -98,7 +98,7 @@ Requisitos
 
 Clone o repositório:
 
-1. git clone https://github.com/seu-usuario/consulta-produtos.git
+1. git clone 
 2. cd consulta-produtos
 
 Instale as dependências do Python:
